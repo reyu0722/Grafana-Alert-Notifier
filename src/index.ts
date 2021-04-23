@@ -10,8 +10,7 @@ const WEBHOOK_SECRET = getProp('WEBHOOK_SECRET')
 
 function doPost(e: GoogleAppsScript.Events.DoPost) {
   const params: AlertRequest = JSON.parse(e.postData.contents)
-  const description = params.message ? `${params.message}\n` : `\n`
-  const text = 'this is a test message' //`## [${params.title}](${params.ruleUrl})\n` + `${description}`
+  const text = `## [${params.ruleName}](${params.ruleUrl})`
   sendMessage(text)
 }
 
